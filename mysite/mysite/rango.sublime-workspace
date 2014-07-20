@@ -235,25 +235,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "__init__.py",
-			"settings":
-			{
-				"buffer_size": 0,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "	\"\"\"\nWSGI config for mysite project.\n\nIt exposes the WSGI callable as a module-level variable named ``application``.\n\nFor more information on this file, see\nhttps://docs.djangoproject.com/en/1.6/howto/deployment/wsgi/\n\"\"\"\n\nimport os\nos.environ.setdefault(\"DJANGO_SETTINGS_MODULE\", \"mysite.settings\")\n\nfrom django.core.wsgi import get_wsgi_application\napplication = get_wsgi_application()\n",
-			"file": "wsgi.py",
-			"file_size": 387,
-			"file_write_time": 1403567868000000,
-			"settings":
-			{
-				"buffer_size": 388,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -283,6 +264,12 @@
 	},
 	"file_history":
 	[
+		"/Users/nigelharsch/Documents/programming/Pythons/Django_Projects/mysite/polls/admin.py",
+		"/Users/nigelharsch/Documents/programming/Pythons/Django_Projects/mysite/polls/models.py",
+		"/Users/nigelharsch/Documents/programming/Pythons/Django_Projects/mysite/mysite/__init__.py",
+		"/Users/nigelharsch/Documents/programming/Pythons/Django_Projects/mysite/mysite/wsgi.py",
+		"/Users/nigelharsch/Documents/programming/Pythons/Django_Projects/mysite/polls/tests.py",
+		"/Users/nigelharsch/Documents/programming/Pythons/Django_Projects/README.md",
 		"/Users/nigelharsch/Documents/programming/General_OPS_Scripts/XML_Quick_Checker/README.md",
 		"/Users/nigelharsch/Documents/programming/General_OPS_Scripts/Bookmark_Functions_files/README.md",
 		"/Users/nigelharsch/Documents/programming/General_OPS_Scripts/Packager2.0/README.md",
@@ -296,7 +283,6 @@
 		"/Users/nigelharsch/Documents/programming/Music_Choice_Web_Scraper/music_choice_web_scraper.bat",
 		"/Users/nigelharsch/Documents/programming/Music_Choice_Web_Scraper/CSV_sked_union.py",
 		"/Users/nigelharsch/Documents/programming/Pythons/Django_Projects/mysite/mysite/settings.py",
-		"/Users/nigelharsch/Documents/programming/Pythons/Django_Projects/mysite/polls/models.py",
 		"/Users/nigelharsch/Documents/programming/Pythons/Udacity_DataWrangling/nytimes.py",
 		"/Users/nigelharsch/Documents/programming/Pythons/Learn_SQL_the_hard_way/ex1.sql",
 		"/Users/nigelharsch/Documents/programming/Pythons/Learn_SQL_the_hard_way/ex5.sql",
@@ -385,58 +371,6 @@
 		{
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "__init__.py",
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "wsgi.py",
-					"settings":
-					{
-						"buffer_size": 388,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1,
-								1
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Python/Python.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],

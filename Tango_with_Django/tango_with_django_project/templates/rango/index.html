@@ -1,12 +1,16 @@
 <!DOCTYPE html>
+{% load static %} <!-- this tells django to include static files -->
+
 <html>
 	<head>
 		<title>Rango</title>
 	</head>
 
 	<body>
-		<h1>Rango says..</h1>
-		hello world! <strong>{{ boldmessage }}</strong><br />
+		<h1>Befany says..</h1>
+		Hello world! I love you. <br />
+		<img src="{% static "bheart.jpg" %}" alt+"Picture of Bethany"
+		<strong>{{ boldmessage }}</strong><br />
 		<a href="/rango/about/">About</a><br />
 	</body>
 </html>

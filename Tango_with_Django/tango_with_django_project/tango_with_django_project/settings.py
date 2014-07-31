@@ -13,10 +13,13 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SETTINGS_DIR = os.path.dirname(__file__)
 PROJECT_PATH = os.path.join(SETTINGS_DIR, os.pardir)
-print PROJECT_PATH
 PROJECT_PATH = os.path.abspath(PROJECT_PATH)
 TEMPLATE_PATH = os.path.join(PROJECT_PATH, 'templates')
 TEMPLATE_DIRS = (TEMPLATE_PATH)
+
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(PROJECT_PATH, 'media') #absolute path
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
@@ -42,7 +45,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rango',
-)
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -84,5 +86,15 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
-
+STATIC_PATH = os.path.join(PROJECT_PATH, 'static')
+print STATIC_PATH
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (
+    STATIC_PATH,
+)
+
+
+
+
+
+

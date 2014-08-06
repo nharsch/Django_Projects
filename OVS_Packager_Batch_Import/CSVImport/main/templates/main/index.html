@@ -7,11 +7,14 @@
         <link href="{% static 'main/css/dropzone.css' %}" type="text/css" rel="stylesheet"/>
     </head>
     <body>
- 
+        <h1>Drop Formatted CSV batch files here</h1>
+        <p>Some text describing formatting</p>
+        <p>maybe a screenshot</p>
         <!-- IMPORTANT enctype attribute! -->
         <form class="dropzone" action="{% url "main:home" %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
         </form>
+        <p>Click Submit to generate a table view showing the batch</p>
         <button id="submit-all">
             Submit all files
         </button>

@@ -64,3 +64,6 @@ class CSVImportForm(forms.Form):
                 ),
             ),
         )
+
+class BatchJobForm(forms.Form):
+    pass

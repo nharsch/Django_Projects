@@ -7,8 +7,5 @@ class PackJob(models.Model):
 	asset_type = models.IntegerField(max_length= 1) #consider making this a choice field
 	priority = models.IntegerField(max_length= 2) 
   ## possibly add "job_types = (package, delete...)"
- 
-job1 = PackJob()
 
-print job1
 

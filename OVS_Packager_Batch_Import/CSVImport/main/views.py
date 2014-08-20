@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from django.core.urlresolvers import reverse
 from django.shortcuts import render_to_response
+from scripts import Batch_Submit_Jobs_Dev 
  
 from forms import UploadFileForm
 from models import UploadFile
@@ -16,6 +17,7 @@ def home(request):
         if form.is_valid():
             new_file = UploadFile(file = request.FILES['file'])
             new_file.save()
+            Batch_Submit_Jobs_Dev(file)
  
             return HttpResponseRedirect(reverse('main:home'))
     else:

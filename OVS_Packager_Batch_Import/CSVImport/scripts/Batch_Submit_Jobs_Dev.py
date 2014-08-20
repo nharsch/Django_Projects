@@ -65,12 +65,14 @@ for job in jobs_list:
 	print response
 	#print job.values()
 
-header_list.append('response')
+return jobs_list
+ 
+# header_list.append('response')
 
-#write response on CSV
-csv_output = csv_name[:-4]+"_RESPONSE.csv"
+# #write response on CSV
+# csv_output = csv_name[:-4]+"_RESPONSE.csv"
 
-dictreader_to_csv(jobs_list, header_list, csv_output)
+# dictreader_to_csv(jobs_list, header_list, csv_output)
 
 
 

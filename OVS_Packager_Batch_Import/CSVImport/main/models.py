@@ -1,5 +1,5 @@
 from django.db import models
-
+from csvimport.models import CSVimport
 # Create your models here.
  
  
@@ -13,4 +13,7 @@ class PackJob(models.Model):
 	priority = models.IntegerField() 
         def __unicode__(self):
             return self.title
-    ##column1=prod_id, column2=title, column3=asset_type, column4=priority
+    ##column1=prodid, column2=title, column3=asset_type, column4=priority
+
+class BatchJob(models.Model):
+    jobs_list = [] #should hold packjob objects

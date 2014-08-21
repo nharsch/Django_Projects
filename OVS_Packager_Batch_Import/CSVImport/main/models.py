@@ -1,5 +1,5 @@
 from django.db import models
-from csvimport.models import CSVimport
+#from csvimport.models import CSVimport
 # Create your models here.
  
  
@@ -16,4 +16,5 @@ class PackJob(models.Model):
     ##column1=prodid, column2=title, column3=asset_type, column4=priority
 
 class BatchJob(models.Model):
-    jobs_list = [] #should hold packjob objects
+    name = models.CharField(max_length=400)
+    job_list = models.ManyToManyField(PackJob) #should hold packjob objects

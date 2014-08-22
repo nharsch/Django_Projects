@@ -41,14 +41,17 @@ def csv_to_job_list(csv_file):
             i['asset_type'] = 3
         job_list.append(i)
 
-    return job_list
+    return job_list #list of dicts
 
 def job_maker(job_dict): #takes a dict 
     new_job = PackJob()
     new_job.prodid = job_dict['prodid']
     new_job.title = job_dict['title']
+    
     new_job.asset_type = job_dict['asset_type']
     new_job.priority = job_dict['priority']
+    new_job.save() #which creates id
+    new_job.name = new_job.title+"_"+str(new_job.id)
     new_job.save()
     return new_job
 
@@ -56,10 +59,9 @@ def batch_maker(csv_file):
     batch_job = BatchJob()
     batch_job.name = csv_file.name+"_"+str(datetime.datetime.utcnow()) #see if this works
     batch_job.save()
-    # pass job objects into here
-    #batch_job.job_list 
-    for job in csv_to_job_list(csv_file): #for job in job dict
-        batch_job.job_list.add(job_maker(job))
-    
+    for jobdict in csv_to_job_list(csv_file): #for job dict in list of dicts
+        job = job_maker(jobdict)
+        batch_job.job_list.add(job) 
+    batch_job.save()
     return batch_job
     

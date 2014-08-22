@@ -54,11 +54,12 @@ def job_maker(job_dict): #takes a dict
 
 def batch_maker(csv_file):
     batch_job = BatchJob()
-    batch_job.name = csv_file.name+str(datetime.datetime.utcnow()) #see if this works
+    batch_job.name = csv_file.name+"_"+str(datetime.datetime.utcnow()) #see if this works
+    batch_job.save()
     # pass job objects into here
     #batch_job.job_list 
     for job in csv_to_job_list(csv_file): #for job in job dict
         batch_job.job_list.add(job_maker(job))
-    batch_job.save()
+    
     return batch_job
     

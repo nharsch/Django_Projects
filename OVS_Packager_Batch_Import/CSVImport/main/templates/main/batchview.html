@@ -2,7 +2,15 @@
 <html>
     <head></head>
     <body>
-        {% batch_id %}
-        Here are the jobs
+        Here is the batch:
+        </br>
+        {{ batch_job }}
+        </br>
+        Here are the jobs:
+        <ul>
+        {% for job in batch_job.job_list.all %}
+            <li>{{ job }}</li>
+        {% endfor %}
+        </ul>
     </body>
 </html>

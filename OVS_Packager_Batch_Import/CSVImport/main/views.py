@@ -1,13 +1,18 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, render_to_response, get_object_or_404
+
 from django.http import HttpResponseRedirect, HttpResponse
 from django.template import RequestContext
 from django.core.urlresolvers import reverse
-from django.shortcuts import render_to_response, get_object_or_404
+
 from .utils import csv_to_job_list, batch_maker
 from main.models import PackJob, BatchJob
 
+from django.forms import ModelForm
+
+
 from forms import UploadFileForm
 from models import UploadFile
+
 # Create your views here.
 
  
@@ -18,12 +23,6 @@ def home(request):
             new_file = UploadFile(file = request.FILES['file'])
             new_file.save()
             batch_job = batch_maker(request.FILES['file']) #builds packjob and jobs, returns BatchJob object
-#             job_id = str(batch_job.id)
-            
-            ##this will be a list of dicts of jobs
-            #return HttpResponseRedirect(reverse('main:home'))
-#             return HttpResponse(jobs_list)
-#             return render_to_response('main/batchview.html')
             return HttpResponseRedirect(reverse('main:batchview', args=(batch_job.id,)))
     else:
         form = UploadFileForm()

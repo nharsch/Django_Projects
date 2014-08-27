@@ -4,12 +4,19 @@
     <body>
         Here is the batch:
         </br>
-        {{ batch_job }}
+        <ul><li>{{ batch_job }}</li></ul>
         </br>
         Here are the jobs:
-        <ul>
-        {% for job in batch_job.job_list.all %}
-            <li>{{ job }}</li>
+        <table>
+            <tr>
+                <th>Job Name</th>
+                <th>Priority</th>
+            </tr>
+            {% for job in batch_job.job_list.all %}
+            <tr>
+                <td>{{ job.title }}</td>
+                <td>{{ job.priority }}</td>
+            </tr>
         {% endfor %}
         </ul>
     </body>

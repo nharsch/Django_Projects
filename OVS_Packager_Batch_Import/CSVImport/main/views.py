@@ -31,6 +31,11 @@ def home(request):
     return render_to_response('main/index.html', data, context_instance=RequestContext(request))
     #return HttpResponse("test")
 
+def latestbatchview(request):
+    if request.method == 'GET':
+        batch_job = get_object_or_404(BatchJob, pk=BatchJob.objects.last().id)
+        return render_to_response('main/batchview.html', {'batch_job' : batch_job})     
+
 def batchview(request, batch_id):
 #     return HttpResponse('test')
 #     if request.method =='POST':

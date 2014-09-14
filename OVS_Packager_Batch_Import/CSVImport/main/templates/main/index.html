@@ -24,37 +24,40 @@
             Dropzone.options.myAwesomeDropzone = {
                 paramName: "file",
                 // Prevents Dropzone from uploading dropped files immediately
-                autoProcessQueue : false,
+                autoProcessQueue : true,
                 maxFiles : 1,                                 
                 acceptedFiles : ".csv",
                 
                 init : function() {
-                    this.on("success", function(responseText) {
-                        window.alert(responseText)
-                    }
-                           )
+                    // this.on("success", function(responseText) {
+                    //     window.alert(responseText)
+
 //                     this.on('complete', function () {
 //                         location.reload();
 //                     });
                 
+                    this.on("success", function() {
+                        window.location.href = "/main/latestbatchview";
+                    }
+                           )
+                
                     myAwesomeDropzone = this;
-                   var submitButton = document.querySelector("#submit-all");
+                    var submitButton = document.querySelector("#submit-all");
                     submitButton.addEventListener("click", function() {
-                        myDropzone.processQueue();
-                        Tell Dropzone to process all queued files.
+                        myAwesomeDropzone.processQueue();
+                      //  Tell Dropzone to process all queued files.
                     });
                     
                     this.on("maxfilesexceeded", function(file){
                     alert("No more files please!");
-                    }
+                    })
                     // You might want to show the submit button only when
                     // files are dropped here:
                     
 //                     this.on("addedfile", function() {
 //                         // Show submit button here and/or inform user to click it.
                         
-
-           }
+            }}
                             
                 
             

@@ -139,6 +139,8 @@ def get_status(prod_id):
 		#not true if not in packager
 
 
+
+
 def submit_job(job): #accepts a dict as payload
 	# print "submit_job returns", get_status(job['prod_id'])
 
@@ -155,6 +157,20 @@ def submit_job(job): #accepts a dict as payload
 	return job
 		#print job.values()
 
+
+def submit_jobobj(jobobj):
+		#check if in queue
+	job_dict = {}
+	job_dict['prod_id'] = jobobj.prod_id
+	job_dict['title'] = jobobj.title
+	job_dict['asset_type'] = jobobj.asset_type
+	job_dict['priority'] = jobobj.priority
+
+	submitter = submit_job(job_dict)
+
+	jobobj.response	= submitter['response']
+	print jobobj.response	
+	return jobobj	
 #tester = get_packID(98324)
 #print tester
 

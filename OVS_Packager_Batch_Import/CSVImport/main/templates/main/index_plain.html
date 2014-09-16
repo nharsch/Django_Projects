@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    
+    <body>
+        <form>
+            <form action="{% url "main:home" %}" method="post" enctype="multipart/form-data">
+            {{ form }}
+<!--                 {% csrf_token %} -->
+            <input type="submit" value="OK">
+        </form>
+    </body>

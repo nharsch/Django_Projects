@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        Here is the batch:
+        </br>
+        <ul><li>{{ batch_job }}</li></ul>
+        </br>
+        Here are the jobs:
+        <table>
+            <tr>
+                <th>Job Name</th>
+                <th>Priority</th>
+            </tr>
+            {% for job in batch_job.job_list.all %}
+            <tr>
+                <td>{{ job.title }}</td>
+                <td>{{ job.priority }}</td>
+            </tr>
+        {% endfor %}
+        </table></ul>
+    <br>
+    <a href="/main">Main<a/>
+    </body>
+</html>

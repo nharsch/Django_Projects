@@ -11,38 +11,60 @@
         <p>Some text describing formatting</p>
         <p>maybe a screenshot</p>
         <!-- IMPORTANT enctype attribute! -->
-        <form class="dropzone" action="{% url "main:home" %}" method="post" enctype="multipart/form-data">
+        <form id="my-awesome-dropzone" class="dropzone" action="{% url "main:home" %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
+<!--             {{ form }} -->
         </form>
         <p>Click Submit to generate a table view showing the batch</p>
         <button id="submit-all">
             Submit all files
         </button>
- 
         <script src="{% static 'main/js/dropzone.js' %}"></script>
         <script type="text/javascript">
-            Dropzone.options.myDropzone = {
- 
+            Dropzone.options.myAwesomeDropzone = {
+                paramName: "file",
                 // Prevents Dropzone from uploading dropped files immediately
-                autoProcessQueue : false,
- 
+                autoProcessQueue : true,
+                maxFiles : 1,                                 
+                acceptedFiles : ".csv",
+                
                 init : function() {
-                    var submitButton = document.querySelector("#submit-all")
-                    myDropzone = this;
- 
+                    // this.on("success", function(responseText) {
+                    //     window.alert(responseText)
+
+//                     this.on('complete', function () {
+//                         location.reload();
+//                     });
+                
+                    this.on("success", function() {
+                        window.location.href = "/main/latestbatchview";
+                    }
+                           )
+                
+                    myAwesomeDropzone = this;
+                    var submitButton = document.querySelector("#submit-all");
                     submitButton.addEventListener("click", function() {
-                        myDropzone.processQueue();
-                        // Tell Dropzone to process all queued files.
+                        myAwesomeDropzone.processQueue();
+                      //  Tell Dropzone to process all queued files.
                     });
- 
+                    
+                    this.on("maxfilesexceeded", function(file){
+                    alert("No more files please!");
+                    })
                     // You might want to show the submit button only when
                     // files are dropped here:
-                    this.on("addedfile", function() {
-                        // Show submit button here and/or inform user to click it.
-                    });
- 
-                }
-            };
+                    
+//                     this.on("addedfile", function() {
+//                         // Show submit button here and/or inform user to click it.
+                        
+            }}
+                            
+                
+            
+//             uncomment below to turn DZ off
+//             Dropzone.options.myAwesomeDropzone = false
         </script>
+        
+ 
     </body>
 </html>

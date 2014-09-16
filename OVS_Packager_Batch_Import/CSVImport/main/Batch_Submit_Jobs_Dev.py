@@ -9,7 +9,7 @@ def csv_to_dictreader(csv_file, header_list):
 	takes file path
 	returns dictreader object
 	'''
-	csv_file = open(csv_file, 'rb') #opens file
+# 	csv_file = open(csv_file, 'rb') #opens file
 	dict_reader = []
 	#make batch dict friendlier to write on
 	for row in csv.DictReader(csv_file, header_list, dialect = 'excel'):
@@ -24,7 +24,7 @@ def csv_to_dictreader(csv_file, header_list):
 # 		for row in dict_reader:
 # 			writer.writerow(row)
 
-def API_submit(csv_file):
+def csv_to_job_list(csv_file):
 #     client = requests.session()
 #     login_page = client.get('http://ovspackager.indemand.com/login')
 #     csrftoken = client.cookies['csrftoken']

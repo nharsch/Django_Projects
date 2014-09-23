@@ -1,25 +1,35 @@
 <!DOCTYPE html>
 <html>
-    <head></head>
+    <head>
+        
+    </head>
     <body>
         Here is the batch:
         </br>
         <ul><li>{{ batch_job }}</li></ul>
         </br>
+    <br>
+    <div id="package all">Package All</div>
+    <div id="main"><a href="/main">Main</a></div>
+    <br>
         Here are the jobs:
         <table>
             <tr>
                 <th>Job Name</th>
                 <th>Priority</th>
+                <th>Is In Queue?</th>
+                <th>Is Packaged?</th>
+                <th>Response</th>
             </tr>
             {% for job in batch_job.job_list.all %}
             <tr>
                 <td>{{ job.title }}</td>
                 <td>{{ job.priority }}</td>
+                <td>{{ job.is_in_queue }}</td>
+                <td>{{ job.is_packaged }}</td>
+                <td>{{ job.response }}</td>
             </tr>
         {% endfor %}
         </table></ul>
-    <br>
-    <a href="/main">Main<a/>
     </body>
 </html>

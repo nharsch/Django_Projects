@@ -3,6 +3,7 @@ import requests
 import json
 import csv
 import datetime
+import OVSPackager_CLItools
 
 from models import PackJob, BatchJob
 
@@ -43,11 +44,11 @@ def csv_to_job_list(csv_file):
 
     return job_list #list of dicts
 
-def job_maker(job_dict): #takes a dict 
+def job_maker(job_dict): #takes a dict returns a job obj
     new_job = PackJob()
     new_job.prodid = job_dict['prodid']
     new_job.title = job_dict['title']
-    
+
     new_job.asset_type = job_dict['asset_type']
     new_job.priority = job_dict['priority']
     new_job.save() #which creates id
@@ -64,4 +65,8 @@ def batch_maker(csv_file):
         batch_job.job_list.add(job) 
     batch_job.save()
     return batch_job
-    
+
+def batch_submitter(batch): #batch object
+    for job in batch.job_list:
+        job.submit()
+    return batch
